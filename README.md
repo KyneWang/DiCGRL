@@ -50,3 +50,18 @@ Training on information network datasets:
 cd NE_lifelong/
 CUDA_VISIBLE_DEVICES=0 nohup python -u multi_run.py --model_name=SpGAT_2 --dataset=cora --k_factors=8 --top_n=4 &> log/multi_SpGAT_2_cora.out &
 ```
+
+
+## Cite
+
+Please cite our paper if you use this code in your own work:
+
+```
+@article{kou2020DiCGRL,
+  title={Disentangle-based Continual Graph Representation Learning},
+  author={Kou, Xiaoyu and Lin, Yankai and Liu, Shaobo and Li, Peng and Zhou, Jie and Zhang, Yan},
+  journal={EMNLP},
+  year={2020}
+}
+```
+

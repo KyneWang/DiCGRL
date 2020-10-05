@@ -20,10 +20,6 @@ class Corpus:
         self.nei_top_idx_list = []
         self.top_n = args.top_n
 
-        if args.try_nei:
-            self.train_triples += self.first_nei
-            self.train_triples += self.second_nei
-
         self.validation_triples = validation_data
         self.test_triples = test_data
 
