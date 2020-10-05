@@ -47,7 +47,7 @@ CUDA_VISIBLE_DEVICES=0 nohup python -u multi_run.py --dataset=WN18RR  --epochs=8
 Training on information network datasets:
 
 ```
-cd NE_lifelong/
+cd NE/
 CUDA_VISIBLE_DEVICES=0 nohup python -u multi_run.py --model_name=SpGAT_2 --dataset=cora --k_factors=8 --top_n=4 &> log/multi_SpGAT_2_cora.out &
 ```
 

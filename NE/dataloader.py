@@ -10,7 +10,7 @@ def encode_onehot(labels):
     return labels_onehot
 
 
-def load_data(args, base_path="./data/cora", dataset="cora"):
+def load_data(args, data_idx, base_path="./data/cora", dataset="cora"):
     """Load citation network dataset (cora only for now)"""
     np.random.seed(args.seed)
     torch.manual_seed(args.seed)
@@ -26,16 +26,16 @@ def load_data(args, base_path="./data/cora", dataset="cora"):
     #features = np.tile(features, (1, args.k_factors))
 
     if args.all_data == 0:
-        path = os.path.join(base_path, str(args.data_idx))
+        path = os.path.join(base_path, str(data_idx))
     else:
         path = base_path
 
     # build graph
     edges = np.genfromtxt(os.path.join(path, "edgelist.txt"), dtype=np.int32)
     ori_adj = None
-    if args.all_data == 0 and args.data_idx > 0:
+    if args.all_data == 0 and data_idx > 0:
         tmp_edges = None
-        for idx in range(args.data_idx):
+        for idx in range(data_idx):
             tmp = np.genfromtxt(os.path.join(base_path, str(idx), "edgelist.txt"), dtype=np.int32)
             if tmp_edges is None:
                 tmp_edges = tmp
@@ -62,9 +62,9 @@ def load_data(args, base_path="./data/cora", dataset="cora"):
     idx_val = np.genfromtxt(os.path.join(path, "valid.txt"), dtype=np.int32)[:, 0]
     idx_test = np.genfromtxt(os.path.join(path, "test.txt"), dtype=np.int32)[:, 0]
     ori_idx_train, ori_idx_valid = None, None
-    if args.all_data == 0 and args.data_idx > 0:
+    if args.all_data == 0 and data_idx > 0:
         tmp_train, tmp_val = None, None
-        for idx in range(args.data_idx):
+        for idx in range(data_idx):
             tmp_t = np.genfromtxt(os.path.join(base_path, str(idx), "train.txt"), dtype=np.int32)[:, 0]
             tmp_v = np.genfromtxt(os.path.join(base_path, str(idx), "valid.txt"), dtype=np.int32)[:, 0]
             if tmp_train is None:
@@ -94,7 +94,7 @@ def load_data(args, base_path="./data/cora", dataset="cora"):
 
     test_sub_idx = {}
     if args.all_data == 0:
-        for idx in range(args.data_idx + 1):
+        for idx in range(data_idx + 1):
             test_sub_idx[idx] = np.genfromtxt(os.path.join(base_path, str(idx), "test.txt"), dtype=np.int32)[:, 0]
             test_sub_idx[idx] = torch.LongTensor(test_sub_idx[idx])
 

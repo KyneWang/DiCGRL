@@ -79,7 +79,7 @@ def main():
         data_idx = idx
         # Load data
         adj, features, labels, idx_train, idx_val, idx_test, test_sub_idx, ori_adj, ori_idx_train, ori_idx_valid = \
-            load_data(args, base_path=args.data_dir, dataset=args.dataset)
+            load_data(args, data_idx, base_path=args.data_dir, dataset=args.dataset)
 
         file_name = "model_name_" + str(args.model_name) + "_lr_" + str(args.lr) + "_epochs_" + str(
             args.epochs) + "_k_factors_" + str(args.k_factors) + "_up_bound_" + str(
