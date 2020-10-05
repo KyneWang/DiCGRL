@@ -1,3 +1,18 @@
+*.pickle
+*.pth
+*.out
+*.pt
+*.idea
+checkpoints/
+*checkpoint
+!.gitignore
+data/*/*.json
+*.pkl
+*.pth
+*.bin
+*.npy
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
