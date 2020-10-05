@@ -159,8 +159,8 @@ def main():
         best_epoch = 0
         if args.evaluate == 0:
             best_epoch = train(args, train_loader, model, model_path, data_idx)
-        evaluate(args, model, model_path, train_loader, file_name, best_epoch=best_epoch, test_sub_triples=test_sub_triples)
-        evaluate(args, model, model_path, train_loader, file_name, best_epoch=best_epoch, test_sub_triples=test_sub_triples, best_or_final='final')
+        evaluate(args, model, model_path, train_loader, file_name, data_idx, best_epoch=best_epoch, test_sub_triples=test_sub_triples)
+        evaluate(args, model, model_path, train_loader, file_name, data_idx, best_epoch=best_epoch, test_sub_triples=test_sub_triples, best_or_final='final')
 
         args.load = os.path.join(model_path, 'trained_final.pth')
 
@@ -328,7 +328,7 @@ def train(args, train_loader, model, model_path, data_idx):
     return best_epoch
 
 
-def evaluate(args, model, model_path, train_loader, file_name, best_epoch=0, test_sub_triples=None, best_or_final='best'):
+def evaluate(args, model, model_path, train_loader, file_name, data_idx, best_epoch=0, test_sub_triples=None, best_or_final='best'):
     print("\n\nmodel evaluating: ", best_or_final)
     if best_epoch != 0:
         print("best_epoch", best_epoch)
