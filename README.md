@@ -2,7 +2,7 @@
 Codes for paper "Disentangle-based Continual Graph Representation Learning".<br>
 Xiaoyu Kou, Yankai Lin, Shaobo Liu, Peng Li, Jie Zhou, Yan Zhang.<br>
 In EMNLP 2020
-### [arXiv](xxx)
+### [arXiv](https://arxiv.org/abs/2010.02565)
 
 ## Requirement
 
